@@ -1,6 +1,6 @@
 <launch>
         <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
-          <param name="lm" value="$(find gaitech_doc)/src/turtlebot/voice_teleop/config/motion_commands.lm"/>
-          <param name="dict" value="$(find gaitech_doc)/src/turtlebot/voice_teleop/config/motion_commands.dic"/>
+          <param name="lm" value="$(find gaitech_edu)/src/turtlebot/voice_teleop/config/motion_commands.lm"/>
+          <param name="dict" value="$(find gaitech_edu)/src/turtlebot/voice_teleop/config/motion_commands.dic"/>
         </node>
    </launch>

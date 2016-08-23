@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="gaitech_doc" name="turtlebot_openCV" type="turtlebot_openCV.py" output="screen">
+  <node pkg="gaitech_edu" name="turtlebot_openCV" type="turtlebot_openCV.py" output="screen">
     <remap from="input_rgb_image" to="/camera/rgb/image_raw" />
     <remap from="input_depth_image" to="/camera/depth/image_rect" />
   </node>

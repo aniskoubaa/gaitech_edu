@@ -1,6 +1,6 @@
 <launch>
-      <include file="$(find gaitech_doc)/src/turtlebot/navigation/map_navigation/launch/turtlebot_stage_psu.launch"/>
-     <node name="map_navigation" pkg="gaitech_doc" type="map_navigation_node" output="screen">
+      <include file="$(find gaitech_edu)/src/turtlebot/navigation/map_navigation/launch/turtlebot_stage_psu.launch"/>
+     <node name="map_navigation" pkg="gaitech_edu" type="map_navigation_node" output="screen">
      </node>
      <node name="playing_sound_node" pkg="sound_play" type="soundplay_node.py" output="screen">
      </node>

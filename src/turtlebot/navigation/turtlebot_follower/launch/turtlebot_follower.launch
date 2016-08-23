@@ -21,7 +21,7 @@
           args="messages camera/rgb/image_color/compressed 5"/>
 
   <!--  Load turtlebot follower into the 3d sensors nodelet manager to avoid pointcloud serializing -->
-  <node pkg="gaitech_doc" name="follower" type="follower.py" output="screen">
+  <node pkg="gaitech_edu" name="follower" type="follower.py" output="screen">
     <remap from="point_cloud" to="/camera/depth/points" />
     
     <rosparam>
