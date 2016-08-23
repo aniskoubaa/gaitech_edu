@@ -50,7 +50,7 @@ int main(int argc, char** argv){
 	ros::NodeHandle n;
 	sound_play::SoundClient sc;
 	ros::spinOnce();
-	path_to_sounds = "/home/ros/catkin_ws/src/gaitech_doc/src/sounds/";
+	path_to_sounds = "/home/ros/catkin_ws/src/gaitech_edu/src/sounds/";
 	//sc.playWave(path_to_sounds+"short_buzzer.wav");
 	//tell the action client that we want to spin a thread by default
 

@@ -28,7 +28,7 @@ class map_navigation():
 	def __init__(self): 
 
 		sc = SoundClient()
-		path_to_sounds = "/home/ros/catkin_ws/src/gaitech_doc/src/sounds/"
+		path_to_sounds = "/home/ros/catkin_ws/src/gaitech_edu/src/sounds/"
 
 		# declare the coordinates of interest 
 		self.xCafe =  7.31
