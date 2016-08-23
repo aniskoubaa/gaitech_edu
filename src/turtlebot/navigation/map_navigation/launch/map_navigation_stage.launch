@@ -1,0 +1,5 @@
+<launch>
+        <node name="map_navigation" pkg="gaitech_doc" type="map_navigation.py" output="screen">
+        </node>
+	<include file="$(find turtlebot_stage)/launch/turtlebot_in_stage_no_rviz.launch"/>
+   </launch>

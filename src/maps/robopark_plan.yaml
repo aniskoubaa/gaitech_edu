@@ -1,0 +1,8 @@
+image: robopark2.pgm
+resolution: 0.014
+origin: [0.0, 0.0, 0.0] #The 2-D pose of the lower-left pixel in the map, as (x, y, yaw)
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
+

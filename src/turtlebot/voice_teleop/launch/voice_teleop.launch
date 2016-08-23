@@ -1,0 +1,10 @@
+<launch>
+	 <node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+		 <param name="lm" value="$(find gaitech_doc)/src/turtlebot/voice_teleop/config/motion_commands.lm"/>
+	   	 <param name="dict" value="$(find gaitech_doc)/src/turtlebot/voice_teleop/config/motion_commands.dic"/>
+	</node>
+        
+        <node name="voice_teleop" pkg="gaitech_doc" type="voice_teleop.py" output="screen">
+ 		<remap from="/cmd_vel" to="/cmd_vel_mux/input/teleop"/>
+ 	</node>
+</launch>

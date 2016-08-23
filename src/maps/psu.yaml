@@ -1,0 +1,8 @@
+image: psu.pgm
+resolution: 0.050000
+origin: [0.0000 ,0.0000, 0.000000] #this origin was set carefully such that positions of landmarks are the same as in the full map
+negate: 0
+occupied_thresh: 0.9
+free_thresh: 0.6
+
+#see https://medium.com/@ivangavran/ros-creating-world-file-from-existing-yaml-5b553d31cc53#.lk1dgae7l

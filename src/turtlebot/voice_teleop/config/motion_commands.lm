@@ -1,0 +1,53 @@
+Language model created by QuickLM on Wed Jun 15 13:21:57 EDT 2016
+Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
+
+The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
+
+The code that was used to produce this language model is available in Open Source.
+Please visit http://www.speech.cs.cmu.edu/tools/ for more information
+
+The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
+This model based on a corpus of 5 sentences and 9 words
+
+\data\
+ngram 1=9
+ngram 2=12
+ngram 3=9
+
+\1-grams:
+-0.8808 </s> -0.3010
+-0.8808 <s> -0.2398
+-1.5798 BACKWARD -0.2398
+-1.5798 FORWARD -0.2398
+-1.5798 LEFT -0.2398
+-1.2788 MOVE -0.2775
+-1.5798 RIGHT -0.2398
+-1.5798 STOP -0.2398
+-1.2788 TURN -0.2775
+
+\2-grams:
+-0.6990 <s> MOVE 0.0000
+-1.0000 <s> STOP 0.0000
+-0.6990 <s> TURN 0.0000
+-0.3010 BACKWARD </s> -0.3010
+-0.3010 FORWARD </s> -0.3010
+-0.3010 LEFT </s> -0.3010
+-0.6021 MOVE BACKWARD 0.0000
+-0.6021 MOVE FORWARD 0.0000
+-0.3010 RIGHT </s> -0.3010
+-0.3010 STOP </s> -0.3010
+-0.6021 TURN LEFT 0.0000
+-0.6021 TURN RIGHT 0.0000
+
+\3-grams:
+-0.6021 <s> MOVE BACKWARD
+-0.6021 <s> MOVE FORWARD
+-0.3010 <s> STOP </s>
+-0.6021 <s> TURN LEFT
+-0.6021 <s> TURN RIGHT
+-0.3010 MOVE BACKWARD </s>
+-0.3010 MOVE FORWARD </s>
+-0.3010 TURN LEFT </s>
+-0.3010 TURN RIGHT </s>
+
+\end\
