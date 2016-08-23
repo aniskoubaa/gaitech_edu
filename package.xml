@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>gaitech_doc</name>
+  <name>gaitech_edu</name>
   <version>0.0.1</version>
-  <description>The gaitech_doc package</description>
+  <description>The gaitech_edu package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
