@@ -43,7 +43,7 @@ class TextWindow():
         self._num_lines = lines
 
     def read_key(self):
-        keycode = self._screen.getch()
+        keycode = self._screen.getch() # read character from the window
         return keycode if keycode != -1 else None
 
     def clear(self):
@@ -99,7 +99,7 @@ class KeyTeleop():
 
         rate = rospy.Rate(self._hz)
         while True:
-            keycode = self._interface.read_key()
+            keycode = self._interface.read_key() # get character from terminal
             if keycode:
                 if self._key_pressed(keycode):
                     self._publish()
@@ -169,9 +169,9 @@ class KeyTeleop():
 class SimpleKeyTeleop():
     def __init__(self, interface):
         self._interface = interface
-        self._pub_cmd = rospy.Publisher('key_vel', Twist)
+        self._pub_cmd = rospy.Publisher('key_vel', Twist) # ros node publishes to "key_val" topic with message type "Twist"
 
-        self._hz = rospy.get_param('~hz', 10)
+        self._hz = rospy.get_param('~hz', 10) # get a parameter from private namespace (not global or parent)
 
         self._forward_rate = rospy.get_param('~forward_rate', 0.8)
         self._backward_rate = rospy.get_param('~backward_rate', 0.5)
@@ -180,6 +180,7 @@ class SimpleKeyTeleop():
         self._angular = 0
         self._linear = 0
 
+    # key_up is up arrow, key_down is down arrow, etc.
     movement_bindings = {
         curses.KEY_UP:    ( 1,  0),
         curses.KEY_DOWN:  (-1,  0),
@@ -188,16 +189,16 @@ class SimpleKeyTeleop():
     }
 
     def run(self):
-        rate = rospy.Rate(self._hz)
+        rate = rospy.Rate(self._hz) # maintain rate at a predetermined hz
         self._running = True
         while self._running:
             while True:
-                keycode = self._interface.read_key()
+                keycode = self._interface.read_key() # read character from terminal
                 if keycode is None:
                     break
                 self._key_pressed(keycode)
             self._set_velocity()
-            self._publish()
+            self._publish() # publish to key_vel
             rate.sleep()
 
     def _get_twist(self, linear, angular):
@@ -228,28 +229,29 @@ class SimpleKeyTeleop():
 
     def _key_pressed(self, keycode):
         if keycode == ord('q'):
-            self._running = False
+            self._running = False # break out of while loop in run() 
             rospy.signal_shutdown('Bye')
-        elif keycode in self.movement_bindings:
-            self._last_pressed[keycode] = rospy.get_time()
+        elif keycode in self.movement_bindings: # if keycode is a valid input (eg up arrow)
+            self._last_pressed[keycode] = rospy.get_time() # track history with current time in float seconds
 
     def _publish(self):
+        # following deals with gui terminal
         self._interface.clear()
         self._interface.write_line(2, 'Linear: %f, Angular: %f' % (self._linear, self._angular))
         self._interface.write_line(5, 'Use arrow keys to move, q to exit.')
         self._interface.refresh()
 
         twist = self._get_twist(self._linear, self._angular)
-        self._pub_cmd.publish(twist)
+        self._pub_cmd.publish(twist) # ros node publishes to "key_val" topic with message type "Twist"
 
 
 def main(stdscr):
-    rospy.init_node('key_teleop')
+    rospy.init_node('key_teleop') # initialize ros node for process called "key_teleop", which communicates with ros master
     app = SimpleKeyTeleop(TextWindow(stdscr))
     app.run()
 
 if __name__ == '__main__':
     try:
-        curses.wrapper(main)
+        curses.wrapper(main) # handle everything in a separate gui terminal
     except rospy.ROSInterruptException:
         pass
