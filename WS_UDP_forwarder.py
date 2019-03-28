@@ -8,7 +8,7 @@ import threading
 
 
 ws_stream_port = 1111
-wscmdport=1114
+wscmdport=9090
 UDP_IP = "127.0.0.1"
 UDP_PORT = 25500
 MAX_SIZE=65000
